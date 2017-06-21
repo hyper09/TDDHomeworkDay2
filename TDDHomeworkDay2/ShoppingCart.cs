@@ -31,7 +31,11 @@ namespace TDDHomeworkDay2
         {
             _bookDictionary = _books.ToDictionary(x => x.Name, x => x);
             var episodeCount = _bookDictionary.Where(x => x.Key.Contains("哈利波特")).Count();
-            if (episodeCount >= 2)
+            if (episodeCount >= 3)
+            {
+                _discount = 0.9m;
+            }
+            else if (episodeCount == 2)
             {
                 _discount = 0.95m;
             }
