@@ -9,7 +9,7 @@ namespace TDDHomeworkDay2
     public class ShoppingCart
     {
         public decimal Checkout(IEnumerable<Product> books) {
-            return default(decimal);
+            return books.Sum(x => x.Price);
         }
     }
 
