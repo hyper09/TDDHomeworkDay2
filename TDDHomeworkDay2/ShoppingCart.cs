@@ -30,8 +30,13 @@ namespace TDDHomeworkDay2
         public ShoppingCart GetDiscount()
         {
             _bookDictionary = _books.ToDictionary(x => x.Name, x => x);
+
             var episodeCount = _bookDictionary.Where(x => x.Key.Contains("哈利波特")).Count();
-            if (episodeCount >= 3)
+            if (episodeCount >= 4)
+            {
+                _discount = 0.8m;
+            }
+            if (episodeCount == 3)
             {
                 _discount = 0.9m;
             }
