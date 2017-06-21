@@ -20,8 +20,7 @@ namespace TDDHomeworkDay2.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
-
-        //第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
+        
         [TestMethod]
         public void Buy_one_episode1_and_one_episode2_price_should_be_190()
         {
@@ -32,6 +31,23 @@ namespace TDDHomeworkDay2.Tests
             //act
             target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
+            var actual = target.GetDiscount().Checkout();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Buy_one_episode1_and_one_episode2_and_one_episode3_price_should_be_270()
+        {
+            //arrange
+            var target = new ShoppingCart();
+            var expected = 270;
+
+            //act
+            target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特3", Price = 100 }, 1);
             var actual = target.GetDiscount().Checkout();
 
             //assert
