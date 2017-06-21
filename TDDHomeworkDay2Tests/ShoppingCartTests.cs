@@ -53,5 +53,23 @@ namespace TDDHomeworkDay2.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Buy_one_episode1_and_one_episode2_and_one_episode3_and_one_episode4_price_should_be_320()
+        {
+            //arrange
+            var target = new ShoppingCart();
+            var expected = 270;
+
+            //act
+            target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特3", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特4", Price = 100 }, 1);
+            var actual = target.GetDiscount().Checkout();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
