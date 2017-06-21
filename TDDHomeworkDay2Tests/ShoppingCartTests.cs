@@ -59,7 +59,7 @@ namespace TDDHomeworkDay2.Tests
         {
             //arrange
             var target = new ShoppingCart();
-            var expected = 270;
+            var expected = 320;
 
             //act
             target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
