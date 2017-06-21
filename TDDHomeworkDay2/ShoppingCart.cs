@@ -8,7 +8,7 @@ namespace TDDHomeworkDay2
 {
     public class ShoppingCart
     {
-        private List<Book> _books { get; set; }
+        private IList<Book> _books { get; set; }
         private IDictionary<string, Book> _bookDictionary { get; set; }
 
         public ShoppingCart()
@@ -25,13 +25,10 @@ namespace TDDHomeworkDay2
             }
         }
 
-        public decimal GetDiscount()
+        public decimal GetDiscount(int episodeCount)
         {
             decimal discount = 1;
-
-            _bookDictionary = _books.ToDictionary(x => x.Name, x => x);
-
-            var episodeCount = _bookDictionary.Where(x => x.Key.Contains("哈利波特")).Count();
+            
             if (episodeCount >= 5)
             {
                 discount = 0.75m;
@@ -51,11 +48,38 @@ namespace TDDHomeworkDay2
             return discount;
         }
 
-        public decimal Checkout() {
-            var discount = GetDiscount();
+        //很髒很醜，目前沒想到更好的做法
+        public decimal Checkout()
+        {
+            _bookDictionary = _books.GroupBy(x => x.Name).ToDictionary(x => x.Key, x => x.FirstOrDefault());
 
-            return _books.Sum(x => x.Price) * discount;
+            decimal result = 0;
+
+            while (_books.Count > 0)
+            {
+                decimal total = 0;
+                int episodeCount = 0;
+
+                foreach (var bookName in _bookDictionary.Keys)
+                {
+                    for (int i = _books.Count - 1; i >= 0; i--)
+                    {
+                        if (_books[i].Name == bookName)
+                        {
+                            total += _books[i].Price;
+                            episodeCount++;
+                            _books.RemoveAt(i);
+                            break;
+                        }
+                    }
+                }
+
+                result += total * GetDiscount(episodeCount);
+            }
+
+            return result;
         }
+        
     }
 
     public class Book
