@@ -31,7 +31,7 @@ namespace TDDHomeworkDay2.Tests
             //act
             target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
-            var actual = target.GetDiscount().Checkout();
+            var actual = target.Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -48,7 +48,7 @@ namespace TDDHomeworkDay2.Tests
             target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特3", Price = 100 }, 1);
-            var actual = target.GetDiscount().Checkout();
+            var actual = target.Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -66,7 +66,7 @@ namespace TDDHomeworkDay2.Tests
             target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特3", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特4", Price = 100 }, 1);
-            var actual = target.GetDiscount().Checkout();
+            var actual = target.Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -85,7 +85,7 @@ namespace TDDHomeworkDay2.Tests
             target.Add(new Book() { Name = "哈利波特3", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特4", Price = 100 }, 1);
             target.Add(new Book() { Name = "哈利波特5", Price = 100 }, 1);
-            var actual = target.GetDiscount().Checkout();
+            var actual = target.Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);

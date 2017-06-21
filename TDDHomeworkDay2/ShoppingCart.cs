@@ -9,13 +9,11 @@ namespace TDDHomeworkDay2
     public class ShoppingCart
     {
         private List<Book> _books { get; set; }
-        private decimal _discount { get; set; }
         private IDictionary<string, Book> _bookDictionary { get; set; }
 
         public ShoppingCart()
         {
             _books = new List<Book>();
-            _discount = 1;
         }
 
 
@@ -27,32 +25,36 @@ namespace TDDHomeworkDay2
             }
         }
 
-        public ShoppingCart GetDiscount()
+        public decimal GetDiscount()
         {
+            decimal discount = 1;
+
             _bookDictionary = _books.ToDictionary(x => x.Name, x => x);
 
             var episodeCount = _bookDictionary.Where(x => x.Key.Contains("哈利波特")).Count();
             if (episodeCount >= 5)
             {
-                _discount = 0.75m;
+                discount = 0.75m;
             }
             else if (episodeCount >= 4)
             {
-                _discount = 0.8m;
+                discount = 0.8m;
             }
             else if (episodeCount == 3)
             {
-                _discount = 0.9m;
+                discount = 0.9m;
             }
             else if (episodeCount == 2)
             {
-                _discount = 0.95m;
+                discount = 0.95m;
             }
-            return this;
+            return discount;
         }
 
         public decimal Checkout() {
-            return _books.Sum(x => x.Price) * _discount;
+            var discount = GetDiscount();
+
+            return _books.Sum(x => x.Price) * discount;
         }
     }
 
