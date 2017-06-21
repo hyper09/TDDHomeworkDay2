@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDHomeworkDay2", "TDDHomeworkDay2\TDDHomeworkDay2.csproj", "{F02016DA-E47E-42B6-B4F8-C860F779EACB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDHomeworkDay2Tests", "TDDHomeworkDay2Tests\TDDHomeworkDay2Tests.csproj", "{3525D4AA-100A-48F6-84FC-6F76749000B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F02016DA-E47E-42B6-B4F8-C860F779EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F02016DA-E47E-42B6-B4F8-C860F779EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F02016DA-E47E-42B6-B4F8-C860F779EACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3525D4AA-100A-48F6-84FC-6F76749000B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3525D4AA-100A-48F6-84FC-6F76749000B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3525D4AA-100A-48F6-84FC-6F76749000B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3525D4AA-100A-48F6-84FC-6F76749000B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
