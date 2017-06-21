@@ -14,11 +14,8 @@ namespace TDDHomeworkDay2.Tests
             var expected = 100;
 
             //act
-            var actual = target.Checkout(new List<Product>()
-                {
-                    new Product() { Id = "HP-1", Name = "哈利波特1", Price = 100 }
-                }
-            );
+            target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
+            var actual = target.Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -33,12 +30,9 @@ namespace TDDHomeworkDay2.Tests
             var expected = 190;
 
             //act
-            var actual = target.Checkout(new List<Product>()
-                {
-                    new Product() { Id = "HP-1", Name = "哈利波特1", Price = 100 },
-                    new Product() { Id = "HP-2", Name = "哈利波特2", Price = 100 },
-                }
-            );
+            target.Add(new Book() { Name = "哈利波特1", Price = 100 }, 1);
+            target.Add(new Book() { Name = "哈利波特2", Price = 100 }, 1);
+            var actual = target.GetDiscount().Checkout();
 
             //assert
             Assert.AreEqual(expected, actual);
