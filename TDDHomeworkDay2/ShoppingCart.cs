@@ -36,7 +36,7 @@ namespace TDDHomeworkDay2
             {
                 _discount = 0.8m;
             }
-            if (episodeCount == 3)
+            else if (episodeCount == 3)
             {
                 _discount = 0.9m;
             }
