@@ -33,7 +33,7 @@ namespace TDDHomeworkDay2
             {
                 discount = 0.75m;
             }
-            else if (episodeCount >= 4)
+            else if (episodeCount == 4)
             {
                 discount = 0.8m;
             }
@@ -45,6 +45,7 @@ namespace TDDHomeworkDay2
             {
                 discount = 0.95m;
             }
+
             return discount;
         }
 
@@ -53,11 +54,11 @@ namespace TDDHomeworkDay2
         {
             _bookDictionary = _books.GroupBy(x => x.Name).ToDictionary(x => x.Key, x => x.FirstOrDefault());
 
-            decimal result = 0;
+            decimal total = 0;
 
             while (_books.Count > 0)
             {
-                decimal total = 0;
+                decimal subTotal = 0;
                 int episodeCount = 0;
 
                 foreach (var bookName in _bookDictionary.Keys)
@@ -66,7 +67,7 @@ namespace TDDHomeworkDay2
                     {
                         if (_books[i].Name == bookName)
                         {
-                            total += _books[i].Price;
+                            subTotal += _books[i].Price;
                             episodeCount++;
                             _books.RemoveAt(i);
                             break;
@@ -74,10 +75,10 @@ namespace TDDHomeworkDay2
                     }
                 }
 
-                result += total * GetDiscount(episodeCount);
+                total += subTotal * GetDiscount(episodeCount);
             }
 
-            return result;
+            return total;
         }
         
     }
