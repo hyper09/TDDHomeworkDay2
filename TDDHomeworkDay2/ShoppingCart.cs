@@ -25,30 +25,6 @@ namespace TDDHomeworkDay2
             }
         }
 
-        public decimal GetDiscount(int episodeCount)
-        {
-            decimal discount = 1;
-            
-            if (episodeCount >= 5)
-            {
-                discount = 0.75m;
-            }
-            else if (episodeCount == 4)
-            {
-                discount = 0.8m;
-            }
-            else if (episodeCount == 3)
-            {
-                discount = 0.9m;
-            }
-            else if (episodeCount == 2)
-            {
-                discount = 0.95m;
-            }
-
-            return discount;
-        }
-
         //很髒很醜，目前沒想到更好的做法
         public decimal Checkout()
         {
@@ -80,7 +56,35 @@ namespace TDDHomeworkDay2
 
             return total;
         }
-        
+
+        private decimal GetDiscount(int episodeCount)
+        {
+            decimal discount = default(decimal);
+
+            switch (episodeCount)
+            {
+                case 0:
+                case 1:
+                    discount = 1;
+                    break;
+                case 2:
+                    discount = 0.95m;
+                    break;
+                case 3:
+                    discount = 0.9m;
+                    break;
+                case 4:
+                    discount = 0.8m;
+                    break;
+                case 5:
+                default:
+                    discount = 0.75m;
+                    break;
+            }
+
+            return discount;
+        }
+
     }
 
     public class Book
